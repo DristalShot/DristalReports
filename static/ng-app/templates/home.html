@@ -1,0 +1,18 @@
+<div class="jumbotron" ng-init="showLogin = false;">
+    <h1>Working with WS on easy way</h1>
+    <p>
+        Do you tired of the constant lags and wretched ui/ux?
+    </p>
+    <p>
+        Do you want a more effective tool to overview time which worksnaps has tracked?
+    </p>
+
+    <p ng-hide="showLogin">
+        <button class="btn btn-primary btn-lg" ng-click="showLogin = true" role="button">
+            Sign in
+        </button>
+    </p>
+    <div ng-show="showLogin" ng-include="'login.html'" ng-controller="loginCtrl">
+
+    </div>
+</div>

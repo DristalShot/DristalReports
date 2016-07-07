@@ -1,0 +1,61 @@
+<div class="well">
+    <h4>{{project.name}}</h4>
+    <div ng-repeat="(key, val) in project" ng-if="key !== 'name' && val">
+        <span class="text-capitalize">{{key}}</span>: {{val}}
+    </div>
+    <div ng-if="assignments.length > 0">
+        Roles: <span ng-repeat="assignment in assignments track by assignment.id">
+        {{assignment.role}} <span ng-if="!$last">,</span>
+    </span>
+    </div>
+    <div ng-if="assignments.length === 0">Have not assignments</div>
+</div>
+
+<tabset ng-if="project.id">
+    <tab select="goToTab('report')" active="isActiveTabs.report">
+        <tab-heading>
+            <a ui-sref="main.project({projectId: project.id, tab: 'report'})">Report</a>
+        </tab-heading>
+        <div class="container">
+            <!--<div class="checkbox-inline">Group by</div>-->
+            <!--<label class="checkbox-inline">-->
+                <!--<input type="checkbox" ng-model="groupBy.task"> Task-->
+            <!--</label>-->
+            <!--<label class="checkbox-inline">-->
+                <!--<input type="checkbox" ng-model="groupBy.memo"> Memo-->
+            <!--</label>-->
+
+            <form class="form-inline" ng-submit="login(token)">
+                <div class="form-group">
+                    <label for="inputDates">Choose date range</label>
+                    <input type="text" id="inputDates" class="form-control"
+                           readonly ws-date-picker dates="dates"
+                           ng-if="dates.start && dates.end">
+                </div>
+            </form>
+
+            <p class="lead text-center" ng-show="loadingTimeEntries">Loading...</p>
+            <p>
+                <span ng-if="loadingRemoteTimeEntries">...</span>
+            </p>
+            <div class="panel panel-default" ng-show="!loadingTimeEntries">
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in timeEntries track by item.user_comment">
+                        {{item.user_comment}} {{item.duration_in_minutes | toHours}}
+                    </li>
+                    <li class="list-group-item active" ng-if="timeEntries.length > 1">
+                        Total: {{calculateTotal() | toHours}}
+                    </li>
+                    <li class="list-group-item" ng-if="timeEntries.length === 0">There is no entries</li>
+                </ul>
+            </div>
+        </div>
+    </tab>
+    <!--<tab select="goToTab('tasks')" active="isActiveTabs.tasks">-->
+        <!--<tab-heading>-->
+            <!--<a ui-sref="main.project({projectId: project.id, tab: 'tasks'})">Tasks</a>-->
+        <!--</tab-heading>-->
+        <!--Tasks goes here-->
+    <!--</tab>-->
+</tabset>

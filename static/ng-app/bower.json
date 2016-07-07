@@ -1,0 +1,17 @@
+{
+  "name": "ws.helper",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alexey-shaposhnikov/ws_reports",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-cached-resource": "~1.4.2",
+    "angular-breadcrumb": "~0.4.1"
+  }
+}

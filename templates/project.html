@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>project</h1>
+<ul>
+    <% _.each(project, function (val, key) { %>
+    <li>
+        <%= key %>: <%= val %>
+    </li>
+    <% }) %>
+</ul>
+<p>Report</p>
+
+<form action="/projects/<%= project.id %>/report" method="GET">
+    <label for="fromInput">
+        From <input type="date" name="from" id="fromInput" />
+    </label>
+    <label for="toInput">
+        To <input type="date" name="to" id="toInput" />
+    </label>
+    <button type="submit">Send</button>
+</form>
+</body>
+</html>

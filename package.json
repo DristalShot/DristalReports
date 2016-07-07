@@ -1,0 +1,38 @@
+{
+  "name": "ws_reports",
+  "version": "1.0.0",
+  "description": "Worksnaps reports",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexey-shaposhnikov/ws_reports.git"
+  },
+  "author": "Alexey Shaposhnikov",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "cookie-parser": "^1.3.5",
+    "ejs": "^2.3.3",
+    "express": "^4.13.1",
+    "express-session": "^1.11.3",
+    "express-validator": "^2.14.0",
+    "q": "^1.4.1",
+    "request": "^2.60.0",
+    "underscore": "^1.8.3",
+    "winston": "^1.0.1",
+    "xml2js": "^0.4.9"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-watch": "^4.3.4",
+    "merge-stream": "^1.0.0"
+  }
+}

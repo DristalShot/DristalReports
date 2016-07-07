@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+ <% grouped = _.groupBy(data, function(item) {  return item.user_comment; }) %>
+ <% total = 0 %>
+<ul>
+    <% _.each(grouped, function (val, key) { %>
+        <li>
+            <% m = _.reduce(val, function (i, o) { return i + parseInt(o.duration_in_minutes, 10);}, 0) %>
+            <% total+=m %>
+            <%= key %>: <%= r(m) %>
+        </li>
+    <% }) %>
+</ul>
+<p>total <%= r(total) %></p>
+
+</body>
+</html>
